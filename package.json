@@ -13,7 +13,7 @@
     "url": "https://github.com/TizioFittizio/node-prerenderer"
   },
   "author": "Luca Campana",
-  "license": "unlicense",
+  "license": "UNLICENSED",
   "homepage": "https://github.com/TizioFittizio/node-prerenderer",
   "dependencies": {
     "body-parser": "^1.19.0",
