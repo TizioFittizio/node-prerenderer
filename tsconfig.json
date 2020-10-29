@@ -1,0 +1,31 @@
+{ 
+    "compilerOptions": { 
+       "target":"ES2015",
+       "moduleResolution":"node",
+       "module":"commonjs",
+       "declaration":false,
+       "noLib":false,
+       "emitDecoratorMetadata":true,
+       "experimentalDecorators":true,
+       "sourceMap":true,
+       "pretty":true,
+       "allowUnreachableCode":true,
+       "allowUnusedLabels":true,
+       "noImplicitAny":true,
+       "noImplicitReturns":true,
+       "alwaysStrict":true,
+       "outDir":"dist/",
+       "baseUrl":"src/",
+       "listFiles":false,
+       "noEmitHelpers":false,
+       "strict": true,
+       "esModuleInterop": false
+    },
+    "include":[ 
+       "src/**/*"
+    ],
+    "exclude":[ 
+       "node_modules"
+    ],
+    "compileOnSave":false
+}
