@@ -9,7 +9,9 @@ export const Constants = {
     ROUTE_MAIN_ROUTER_NAME: '',
     ROUTE_MAIN_RENDER: '/render',
 
+    DEFAULT_CACHE_FOLDER_PATH: './cache',
     DEFAULT_CACHE_RENEW_AFTER_MILLIS: 1000 * 60 * 10,
+    DEFAULT_PORT: 7777,
 
     HEADER_PRERENDERER: 'X-Prerenderer'
 

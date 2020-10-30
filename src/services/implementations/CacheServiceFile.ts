@@ -26,10 +26,13 @@ export class CacheServiceFile implements CacheService {
     }
 
     public async init(){
-        this.filePath = this.configService.getStringOrThrow(Constants.CONFIG_KEY_CACHE_FILE_PATH);
+        this.filePath =
+            this.configService.getString(Constants.CONFIG_KEY_CACHE_FILE_PATH) ??
+            Constants.DEFAULT_CACHE_FOLDER_PATH;
         const doesPathExists = await this.doesPathExists(this.filePath);
         if (!doesPathExists){
-            throw new NotInitializedError(`File path ${this.filePath} does not exists`);
+            await this.createFolder(this.filePath);
+            this.logService.log('CacheServiceFile', LogLevel.INFO, `Created folder ${this.filePath}`);
         }
     }
 
@@ -88,6 +91,15 @@ export class CacheServiceFile implements CacheService {
     private doesPathExists(path: string){
         return new Promise<boolean>((resolve, reject) => {
             fs.exists(path, exists => resolve(exists));
+        });
+    }
+
+    private createFolder(path: string){
+        return new Promise((resolve, reject) => {
+            fs.mkdir(path, err => {
+                if (err) reject(err);
+                resolve();
+            });
         });
     }
 

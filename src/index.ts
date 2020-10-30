@@ -28,7 +28,7 @@ class Main {
 
     private async startServer(){
         const { configService } = IOC.instance;
-        const server = new Server(configService.getNumberOrThrow(Constants.CONFIG_KEY_PORT));
+        const server = new Server(configService.getNumber(Constants.CONFIG_KEY_PORT) ?? Constants.DEFAULT_PORT);
         await server.start();
     }
 
